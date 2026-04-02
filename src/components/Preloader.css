@@ -1,0 +1,204 @@
+/* ============================================
+   PRELOADER — Curcio Negocios Inmobiliarios
+   3 second premium intro
+   ============================================ */
+
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0.7s;
+}
+
+/* Phases */
+.preloader--enter,
+.preloader--visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.preloader--exit {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* ========================
+   BACKGROUND
+   ======================== */
+.preloader__bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(155, 28, 28, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(74, 10, 10, 0.6) 0%, transparent 50%),
+        linear-gradient(160deg, #1a0404 0%, var(--borde-oscuro) 25%, var(--borde) 50%, var(--borde-oscuro) 75%, #0d0202 100%);
+}
+
+/* Animated glows */
+.preloader__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    animation: preGlow 4s ease-in-out infinite alternate;
+}
+
+.preloader__glow--1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(155, 28, 28, 0.35);
+    top: -15%;
+    right: -10%;
+}
+
+.preloader__glow--2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(176, 184, 193, 0.08);
+    bottom: -10%;
+    left: -8%;
+    animation-delay: 1.5s;
+}
+
+@keyframes preGlow {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(20px, -15px) scale(1.15);
+    }
+}
+
+/* Grain texture */
+.preloader__grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+}
+
+/* ========================
+   CONTENT
+   ======================== */
+.preloader__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* ── Logo ── */
+.preloader__logo-wrap {
+    overflow: hidden;
+}
+
+.preloader__logo {
+    display: block;
+    height: 180px;
+    width: auto;
+    object-fit: contain;
+    animation: logoReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@keyframes logoReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.85);
+        filter: blur(10px) brightness(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0) brightness(1);
+    }
+}
+
+/* ── Line accent ── */
+.preloader__line {
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--plata) 30%,
+            var(--plata-claro) 50%,
+            var(--plata) 70%,
+            transparent);
+    margin: 1.5rem 0 1.25rem;
+    animation: lineExpand 1s ease 0.9s both;
+}
+
+@keyframes lineExpand {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 180px;
+        opacity: 0.6;
+    }
+}
+
+/* ── Tagline ── */
+.preloader__tagline {
+    font-family: var(--font-cuerpo);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--plata);
+    margin: 0;
+    opacity: 0;
+    animation: tagFade 0.8s ease 1.3s both;
+}
+
+@keyframes tagFade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+        letter-spacing: 0.5em;
+    }
+
+    to {
+        opacity: 0.6;
+        transform: translateY(0);
+        letter-spacing: 0.28em;
+    }
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
+@media (max-width: 576px) {
+    .preloader__logo {
+        height: 140px;
+    }
+
+    .preloader__tagline {
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+    }
+
+    @keyframes tagFade {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+            letter-spacing: 0.35em;
+        }
+
+        to {
+            opacity: 0.6;
+            transform: translateY(0);
+            letter-spacing: 0.2em;
+        }
+    }
+}

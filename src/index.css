@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap');
+
+:root {
+  --borde:        #7B1515;
+  --borde-oscuro: #4A0A0A;
+  --borde-medio:  #9B1C1C;
+  --borde-claro:  #C0392B;
+
+  --plata:        #B0B8C1;
+  --plata-claro:  #D4D9DE;
+  --plata-oscuro: #7A8490;
+
+  --negro:        #0D0D0D;
+  --blanco:       #FAFAFA;
+  --crema:        #F2EDE8;
+  --gris-suave:   #F0EEEC;
+
+  --grad-hero:    linear-gradient(135deg, #4A0A0A 0%, #7B1515 45%, #9B1C1C 100%);
+  --grad-oscuro:  linear-gradient(180deg, #1a0505 0%, #2d0808 100%);
+  --grad-plata:   linear-gradient(135deg, #9EA8B3 0%, #C8CDD2 50%, #9EA8B3 100%);
+  --grad-card:    linear-gradient(145deg, #ffffff 0%, #f5f0ef 100%);
+
+  --font-titulo:  'Cormorant Garamond', Georgia, serif;
+  --font-cuerpo:  'Outfit', system-ui, sans-serif;
+
+  --radio:        3px;
+  --sombra:       0 4px 24px rgba(75, 10, 10, 0.12);
+  --sombra-hover: 0 16px 48px rgba(75, 10, 10, 0.22);
+  --sombra-card:  0 2px 12px rgba(0,0,0,0.07);
+  --transicion:   all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-cuerpo);
+  background: var(--blanco);
+  color: var(--negro);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: var(--font-cuerpo); }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+
+.seccion-etiqueta {
+  display: inline-block;
+  font-family: var(--font-cuerpo);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--borde-medio);
+  margin-bottom: 14px;
+}
+.seccion-titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--negro);
+}
+.seccion-titulo em { font-style: italic; color: var(--borde); }
+.seccion-header { text-align: center; margin-bottom: 56px; }
+
+.btn-primario {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--borde); color: var(--blanco);
+  padding: 15px 34px; font-family: var(--font-cuerpo);
+  font-weight: 500; font-size: 0.85rem; letter-spacing: 0.06em;
+  text-transform: uppercase; transition: var(--transicion);
+  border: 2px solid var(--borde); border-radius: var(--radio);
+}
+.btn-primario:hover {
+  background: var(--borde-oscuro); border-color: var(--borde-oscuro);
+  transform: translateY(-2px); box-shadow: var(--sombra-hover);
+}
+.btn-secundario {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--blanco);
+  padding: 15px 34px; font-family: var(--font-cuerpo);
+  font-weight: 500; font-size: 0.85rem; letter-spacing: 0.06em;
+  text-transform: uppercase; transition: var(--transicion);
+  border: 2px solid rgba(255,255,255,0.5); border-radius: var(--radio);
+}
+.btn-secundario:hover { background: rgba(255,255,255,0.1); border-color: var(--blanco); }
+
+.btn-outline-borde {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--borde);
+  padding: 13px 30px; font-family: var(--font-cuerpo);
+  font-weight: 500; font-size: 0.85rem; letter-spacing: 0.06em;
+  text-transform: uppercase; transition: var(--transicion);
+  border: 2px solid var(--borde); border-radius: var(--radio);
+}
+.btn-outline-borde:hover { background: var(--borde); color: var(--blanco); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+.animate-fade-up  { opacity: 0; animation: fadeUp 0.75s ease forwards; }
+.animate-fade-in  { opacity: 0; animation: fadeIn 0.6s ease forwards; }
+
+.divisor-plata {
+  width: 60px; height: 2px;
+  background: var(--grad-plata);
+  margin: 0 auto 20px;
+}

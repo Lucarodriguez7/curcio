@@ -1,0 +1,417 @@
+/* ============================================
+   NAVBAR — Curcio Negocios Inmobiliarios
+   Premium glassmorphism + effects
+   ============================================ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(135deg, var(--borde-oscuro) 0%, var(--borde) 60%, var(--borde-medio) 100%);
+    transition:
+        background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        backdrop-filter 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+/* ── Scrolled: glassmorphism ── */
+.navbar--scrolled {
+    background: rgba(60, 8, 8, 0.78);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04),
+        0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Bottom glow line ── */
+.navbar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(176, 184, 193, 0.15) 30%,
+            rgba(212, 217, 222, 0.25) 50%,
+            rgba(176, 184, 193, 0.15) 70%,
+            transparent);
+    transition: opacity 0.4s ease;
+}
+
+.navbar--scrolled::after {
+    opacity: 0.6;
+}
+
+/* ── Inner container ── */
+.navbar__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ========================
+   LOGO — Real image
+   ======================== */
+.navbar__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: opacity 0.25s ease;
+}
+
+.navbar__logo:hover {
+    opacity: 0.85;
+}
+
+.navbar__logo-img {
+    height: 46px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(1.05);
+    transition: filter 0.3s ease;
+}
+
+.navbar--scrolled .navbar__logo-img {
+    filter: brightness(1.1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* ========================
+   LINKS DESKTOP
+   ======================== */
+.navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__link {
+    position: relative;
+    font-family: var(--font-cuerpo);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.72);
+    text-decoration: none;
+    padding: 0.55rem 0.9rem;
+    border-radius: 8px;
+    transition: color 0.3s ease, background 0.3s ease;
+    overflow: hidden;
+}
+
+/* Hover glow effect */
+.navbar__link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: radial-gradient(ellipse at 50% 80%, rgba(255, 255, 255, 0.08), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.navbar__link:hover::before {
+    opacity: 1;
+}
+
+.navbar__link:hover {
+    color: #fff;
+}
+
+.navbar__link-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* Active state */
+.navbar__link--active {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Underline animada */
+.navbar__link--active::after {
+    content: '';
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--plata), var(--plata-claro));
+    border-radius: 2px;
+    animation: underlineIn 0.35s ease forwards;
+}
+
+@keyframes underlineIn {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 18px;
+        opacity: 1;
+    }
+}
+
+/* ========================
+   CTA DESKTOP (WhatsApp)
+   ======================== */
+.navbar__cta {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-cuerpo);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--borde-oscuro);
+    background: linear-gradient(135deg, var(--plata-claro) 0%, #fff 50%, var(--plata-claro) 100%);
+    background-size: 200% 100%;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: all 0.35s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar__cta:hover {
+    background-position: 100% 0;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* ========================
+   HAMBURGER — Animated lines
+   ======================== */
+.navbar__hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.navbar__hamburger:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.navbar__burger {
+    width: 22px;
+    height: 16px;
+    position: relative;
+}
+
+.navbar__burger span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--plata-claro);
+    border-radius: 2px;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar__burger span:nth-child(1) {
+    top: 0;
+}
+
+.navbar__burger span:nth-child(2) {
+    top: 7px;
+    width: 65%;
+}
+
+.navbar__burger span:nth-child(3) {
+    top: 14px;
+}
+
+/* Open state — X animation */
+.navbar__burger--open span:nth-child(1) {
+    top: 7px;
+    transform: rotate(45deg);
+}
+
+.navbar__burger--open span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-8px);
+}
+
+.navbar__burger--open span:nth-child(3) {
+    top: 7px;
+    transform: rotate(-45deg);
+}
+
+/* ========================
+   OVERLAY MOBILE
+   ======================== */
+.navbar__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 998;
+}
+
+.navbar__overlay--open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ========================
+   MENÚ MOBILE
+   ======================== */
+.navbar__mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100dvh;
+    background: linear-gradient(180deg, var(--borde-oscuro) 0%, #1a0404 100%);
+    z-index: 999;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -12px 0 48px rgba(0, 0, 0, 0.4);
+}
+
+.navbar__mobile--open {
+    transform: translateX(0);
+}
+
+/* Logo in mobile menu */
+.navbar__mobile-logo {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.navbar__mobile-logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(1.1);
+}
+
+.navbar__mobile-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.navbar__mobile--open .navbar__mobile-links li {
+    animation: navSlideIn 0.4s ease forwards;
+    opacity: 0;
+}
+
+@keyframes navSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.navbar__mobile-link {
+    display: block;
+    font-family: var(--font-cuerpo);
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    transition: color 0.25s ease, background 0.25s ease, padding-left 0.25s ease;
+}
+
+.navbar__mobile-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    padding-left: 1.25rem;
+}
+
+.navbar__mobile-link--active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+    font-weight: 600;
+    border-left: 3px solid var(--plata);
+    padding-left: 1.25rem;
+}
+
+.navbar__mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    font-family: var(--font-cuerpo);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--borde-oscuro);
+    background: linear-gradient(135deg, var(--plata-claro), #fff, var(--plata-claro));
+    background-size: 200% 100%;
+    padding: 0.85rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    margin-top: auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.navbar__mobile-cta:hover {
+    background-position: 100% 0;
+    transform: translateY(-1px);
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
+@media (max-width: 900px) {
+    .navbar__inner {
+        height: 64px;
+        padding: 0 1rem;
+    }
+
+    .navbar__links,
+    .navbar__cta {
+        display: none;
+    }
+
+    .navbar__hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar__logo-img {
+        height: 38px;
+    }
+}

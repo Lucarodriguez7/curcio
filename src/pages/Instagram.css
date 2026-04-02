@@ -1,0 +1,171 @@
+.section-insta-premium {
+    padding: 140px 0;
+    background-color: #0a0a0a;
+    /* Negro profundo */
+    overflow: hidden;
+    color: #fff;
+}
+
+.insta-luxury-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    /* Damos más espacio al visual */
+    align-items: center;
+    gap: 40px;
+    padding: 0 50px;
+}
+
+/* --- TEXTO --- */
+.insta-title-luxury {
+    font-size: 3.8rem;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.insta-title-luxury span {
+    color: #8b2323;
+    /* Tu bordó */
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* --- BOTÓN METÁLICO BORDÓ --- */
+.btn-insta-metallic {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, #721c1c 0%, #962828 50%, #721c1c 100%);
+    padding: 20px 45px;
+    border-radius: 2px;
+    /* Estilo arquitectónico */
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #5a1515;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-insta-metallic:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(139, 35, 35, 0.3);
+}
+
+.metallic-glint {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.6s;
+}
+
+.btn-insta-metallic:hover .metallic-glint {
+    left: 100%;
+}
+
+/* --- VISUAL (EL CELULAR GIGANTE) --- */
+.insta-visual-luxury {
+    position: relative;
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mockup-xl-wrapper {
+    z-index: 10;
+    transform: rotate(-6deg) translateY(20px);
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.mockup-xl-img {
+    width: 420px;
+    /* Aumentado considerablemente */
+    height: auto;
+    filter: drop-shadow(50px 80px 100px rgba(0, 0, 0, 0.8));
+}
+
+.insta-visual-luxury:hover .mockup-xl-wrapper {
+    transform: rotate(0deg) scale(1.05);
+}
+
+/* --- IMÁGENES DE FONDO (BOKEH) --- */
+.insta-backdrop-art {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.bokeh-img {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 15px;
+    filter: blur(4px) brightness(0.5);
+    /* Desenfoque y oscurecimiento */
+    opacity: 0.7;
+    transition: all 1s ease;
+}
+
+/* Posiciones asimétricas para look Premium */
+.img-1 {
+    width: 250px;
+    height: 320px;
+    top: 0;
+    left: 10%;
+    transform: rotate(-15deg);
+}
+
+.img-2 {
+    width: 280px;
+    height: 280px;
+    bottom: 5%;
+    left: 5%;
+    transform: rotate(10deg);
+    filter: blur(8px);
+}
+
+.img-3 {
+    width: 300px;
+    height: 400px;
+    top: 10%;
+    right: 0;
+    transform: rotate(12deg);
+    filter: blur(2px);
+    opacity: 0.8;
+}
+
+.img-4 {
+    width: 220px;
+    height: 220px;
+    bottom: 10%;
+    right: 15%;
+    transform: rotate(-8deg);
+    filter: blur(6px);
+}
+
+/* Animación sutil de flotación */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.mockup-xl-wrapper {
+    animation: float 6s ease-in-out infinite;
+}

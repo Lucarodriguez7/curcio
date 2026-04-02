@@ -1,0 +1,310 @@
+/* ============================================
+   FOOTER — Curcio Negocios Inmobiliarios
+   Bordó oscuro premium, 4 columnas
+   ============================================ */
+
+.footer {
+    background: linear-gradient(180deg, var(--borde-oscuro) 0%, #1a0404 100%);
+    color: rgba(255, 255, 255, 0.7);
+    position: relative;
+}
+
+/* Línea decorativa superior — gradient plateado */
+.footer__line {
+    height: 3px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--plata) 20%,
+            var(--plata-claro) 50%,
+            var(--plata) 80%,
+            transparent 100%);
+    opacity: 0.5;
+}
+
+/* ========================
+   INNER — 4 columnas
+   ======================== */
+.footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 3rem;
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr 0.8fr 1fr;
+    gap: 3rem;
+}
+
+/* ========================
+   BRAND (col 1)
+   ======================== */
+.footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--blanco);
+    margin-bottom: 1.25rem;
+}
+
+.footer__logo-icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+.footer__logo-nombre {
+    display: block;
+    font-family: var(--font-titulo);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1.1;
+    color: var(--blanco);
+}
+
+.footer__logo-sub {
+    display: block;
+    font-family: var(--font-cuerpo);
+    font-size: 0.55rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--plata);
+    opacity: 0.8;
+}
+
+.footer__desc {
+    font-family: var(--font-cuerpo);
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 1.5rem;
+    max-width: 300px;
+}
+
+/* Social icons */
+.footer__social {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.footer__social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--plata);
+    transition: all 0.3s ease;
+}
+
+.footer__social-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--plata);
+    color: var(--blanco);
+    transform: translateY(-2px);
+}
+
+/* ========================
+   COLUMNAS (col 2, 3, 4)
+   ======================== */
+.footer__col-title {
+    font-family: var(--font-titulo);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--blanco);
+    margin: 0 0 1.25rem;
+    letter-spacing: 0.02em;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.footer__col-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 28px;
+    height: 2px;
+    background: var(--plata);
+    border-radius: 2px;
+}
+
+/* Links */
+.footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.footer__links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-cuerpo);
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color 0.25s ease, gap 0.25s ease;
+}
+
+.footer__links a:hover {
+    color: var(--plata-claro);
+    gap: 0.65rem;
+}
+
+/* Contact info */
+.footer__contact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer__contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-family: var(--font-cuerpo);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.footer__contact li svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--plata);
+}
+
+.footer__contact a {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.footer__contact a:hover {
+    color: var(--plata-claro);
+}
+
+/* ========================
+   BOTTOM BAR
+   ======================== */
+.footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer__bottom-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer__copy {
+    font-family: var(--font-cuerpo);
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0;
+}
+
+.footer__back-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-cuerpo);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.4);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    transition: color 0.25s ease, background 0.25s ease;
+}
+
+.footer__back-top:hover {
+    color: var(--plata-claro);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
+
+/* Tablet */
+@media (max-width: 900px) {
+    .footer__inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+
+    .footer__brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer__desc {
+        max-width: 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 3rem 1rem 2rem;
+    }
+
+    .footer__brand {
+        grid-column: auto;
+        text-align: center;
+    }
+
+    .footer__logo {
+        justify-content: center;
+    }
+
+    .footer__desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer__social {
+        justify-content: center;
+    }
+
+    .footer__col-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer__col {
+        text-align: center;
+    }
+
+    .footer__links a {
+        justify-content: center;
+    }
+
+    .footer__contact li {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer__bottom-inner {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+        padding: 1rem;
+    }
+}
